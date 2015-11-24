@@ -1,0 +1,31 @@
+
+<%= render 'hero' %>
+
+<div class="content container">
+  <div class="row spacer">
+    <h3>Actually meet people. You know, like, in real life.</h3>
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <p>By matching people with a shared interest in a specific activity, Seek makes it much more likely that you will actually take the next step to hang out in real life.</p>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-sm-4 col-sm-offset-4">
+      <%= image_tag('screenshot.png', class: "img-responsive") %>
+    </div>
+  </div>
+
+  <div class="row spacer">
+    <h3>Find people with similar interests.</h3>
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <p>Seek helps you connect with people who are interested in doing the same activities as you. It takes out the awkwardness of first encounters.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer row">
+  <div class="spacer"></div>
+  <div class="text-center">
+    <%= link_to 'Signup for Free', new_user_session_path, :class=>"signup" %>
+  </div>
+</div>

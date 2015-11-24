@@ -1,0 +1,280 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;  
+  font-size: 15px;
+  color: #525252;
+}
+
+body a {
+  color: #0085B2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align:center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  margin: 20px 0;
+  font-weight: 300;
+}
+
+
+h4 {
+  font-size: 21px;
+  margin: 40px;
+}
+
+h3, h4 {
+  color: #3CA8F7;
+  font-weight: 300;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 100 !important;
+}
+
+
+.about-hero {
+  background: image-url("cooking.jpg") no-repeat center center;
+}
+
+.hero {
+  background: image-url("hero.jpg") no-repeat center center;
+  height: 400px;
+  margin-top: -105px;
+  padding-top: 150px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.navbar {
+  font-size: 14px;
+  font-weight: 300;
+  }
+
+.navbar li {
+  margin: 0px 10px;
+}
+
+.navbar-home {
+  background-color: transparent;
+  background: transparent;
+  border-color: transparent;
+  padding-top: 10px;
+  }
+
+.navbar-workshop {
+  background:rgba(0,0,0,0.3) !important;
+  }
+
+
+
+.hero h1, .hero h2 {
+   text-shadow: 0 0 15px #666;
+   color: #fff;
+   margin: 8px;
+}
+
+.hero h1 {
+  text-transform: none;
+  font-size: 45px;
+  font-weight: 400;
+}
+
+.hero h2 {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+#about {
+  text-align: center;
+  background-color: rgba(29,191,247,1);
+  width: 220px;
+  height: 50px;
+  margin: 25px auto;
+  padding: 14px;
+  border-radius: 2px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+#about:hover {
+  background-color: rgba(29,191,247,0.9);
+  cursor:pointer;
+}
+
+#about a {
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.workshops {
+  padding: 0px 30px;
+}
+
+.workshop {
+  margin-bottom: 30px;
+  position: relative; 
+  opacity: 1;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.workshop img {
+    vertical-align: bottom; /* Remove the gap at the bottom of inline image */
+    max-width: 100%;
+    
+}
+
+.workshop:hover {
+  opacity: 0.6;
+}
+
+.caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font: 0/0 a; /* Remove the gap between inline(-block) elements */
+}
+
+.caption:before {
+    content: ' ';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;    
+}
+
+.caption .headline {
+    display: inline-block;
+    vertical-align: middle;
+    text-align:center;
+    width: 100%;
+}
+
+.headline h3, .headline h6 {
+  color: #fff;
+  font-weight: 400;
+  text-shadow: 0 0 10px #102B22;
+}
+
+.contact {
+  margin: 50px 0;
+}
+
+.button {
+  width: 250px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #B9B9C8;
+  color: #545454;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.buy-button {
+  height: 40px;
+  background-color: #8ED174;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 26px;
+  -webkit-transition: all .3s ease-in-out;
+   -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+   transition: all .3s ease-in-out;
+}
+
+.buy-button:hover {
+  background-color: #9FE583;
+}
+
+a:hover {
+  text-decoration:none;
+}
+
+.slide {
+  margin-left: 8px;
+}
+
+.spacer {
+  margin: 50px 0;
+}
+
+.small-spacer {
+  margin: 25px 0;
+}
+
+.navbar-home .navbar-nav>li>a {
+  color:white;
+}
+
+.navbar-home .navbar-nav>li>a:hover {
+  color:white;
+  text-decoration: underline;
+}
+
+.signup {
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  font-weight: 400;
+  padding: 15px 25px;
+}
+
+.signup:hover {
+  background-color: white !important;
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.devise-link a {
+  font-size: 14px;
+}
+
+.logo {
+  height: 15px;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.facebook {
+  height: 60px;
+  display:none;
+  text-align: center;
+  width: 220px;
+  margin: 25px auto;
+}
+
+.footer {
+  background-color: #3CA8F7;
+  height: 200px;
+}
