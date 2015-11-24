@@ -1,3 +1,4 @@
 class Movie < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  has_many :movie_ratings
+  has_many :users, :through => :movie_ratings
 end

@@ -1,33 +1,18 @@
 Rails.application.routes.draw do
-  get 'movies/index'
+  get 'movie_ratings/create'
 
-  get 'movies/create'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  get 'movies/new'
 
-  get 'movies/update'
-
-  get 'movies/edit'
-
-  get 'movies/show'
-
-  get 'users/index'
-
-  get 'users/create'
-
-  get 'users/new'
-
-  get 'users/update'
-
-  get 'users/edit'
-
-  get 'users/show'
+  resources :users
+  resources :movies
+  resources :movie_ratings
+  resource :dashboard
 
   get 'pages/index'
   get 'pages/about'
 
   root to: 'pages#index'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

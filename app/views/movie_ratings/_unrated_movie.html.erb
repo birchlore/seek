@@ -1,0 +1,25 @@
+<h1><%= @unrated_movie.title %></h1>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <%= form_for(:movie_rating, :remote => true, :html => { :style=>'display:inline;' }, :url => url_for(:controller => 'movie_ratings', :action => 'index')) do |f| %>
+      <%= f.hidden_field(:movie_id, :value => @unrated_movie.id) %>
+      <%= f.hidden_field(:wants_to_see, :value => false) %>
+      <%= f.submit(:type => :image, :src=> image_url('close.jpg'), :class=>'icon') %>
+    <% end %>
+
+    <%= form_for(:movie_rating, :remote => true, :html => { :style=>'display:inline;' }, :url => url_for(:controller => 'movie_ratings', :action => 'index')) do |f| %>
+      <%= f.hidden_field(:movie_id, :value => @unrated_movie.id) %>
+      <%= f.hidden_field(:wants_to_see, :value => true) %>
+      <%= f.submit(:type => :image, :src=> image_url('heart.jpg'), :class=>'icon') %>
+    <% end %>
+
+  </div>
+</div>
+<div class="spacer"></div>
+
+<div class="text-center videoWrapper">
+  <%= @unrated_movie.embed.html_safe %>
+</div>
+
+
+<div class="spacer"></div>

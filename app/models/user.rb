@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-
-  has_and_belongs_to_many :movies
+  has_many :movie_ratings
+  has_many :movies, :through => :movie_ratings
 
 
 
@@ -29,9 +29,15 @@ class User < ActiveRecord::Base
     end
 
     def current_unrated_movies
-      all_current_movies = Movie.where(status:"current")
       my_current_movies = self.movies.where(status:"current")
+      ids = my_current_movies.map{|x| x.id}
 
+      all_current_movies = Movie.where(status:"current")
+      unrated_movies = all_current_movies.reject{|x| ids.include? x.id}
+    end
+
+    def wants_to_see_movies
+      self.movies.where(movie_ratings: { wants_to_see: true } )
     end
 
 
