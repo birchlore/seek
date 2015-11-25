@@ -1,0 +1,11 @@
+
+<%= link_to user_path(user) do %>
+  <div class="col-sm-2 col-xs-4 user">
+     <div class="image-cropper">
+       <%= image_tag(user.image, :class => "", :style=>"margin:0 auto;") %>
+    </div>
+     <div class="text-center">
+       <p><%= user.name.titleize %><%= age(user) %></p>
+    </div>
+  </div>
+<% end %>

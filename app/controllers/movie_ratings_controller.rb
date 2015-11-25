@@ -26,11 +26,17 @@ class MovieRatingsController < ApplicationController
   end
 
 
+  def update
+    movie_rating = current_user.movie_ratings.where(:movie_id => movie_rating_params[:movie_id]).first
+    movie_rating.update_attributes(:seen => movie_rating_params[:seen])
+  end
+
+
   protected
 
   def movie_rating_params
     params.require(:movie_rating).permit(
-      :movie_id, :user_id, :wants_to_see)
+      :movie_id, :user_id, :wants_to_see, :seen)
   end
 
 

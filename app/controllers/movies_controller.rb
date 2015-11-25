@@ -18,15 +18,20 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(movie_params[:id])
+    @movie = Movie.find(params[:id])
+    if current_user.location
+      @users = @movie.users_who_want_to_see.where(location: current_user.location)
+    else
+      @users = @movie.users_who_want_to_see
+    end
   end
 
   protected
 
-   # def movie_params
-   #  params.require(:movie).permit(
-   #    :title, :description, :embed)
-   # end
+   def movie_params
+    params.require(:movie).permit(
+      :title, :description, :embed, :id)
+   end
 
 
 end
