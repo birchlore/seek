@@ -15,13 +15,20 @@
           <li><%= link_to 'Home', dashboard_path %></li>
 
          </ul>
-
             <ul class="nav navbar-nav navbar-right">  
             <% if user_signed_in? %>
+                <li>
+                    <%= link_to conversations_path, :class=>"cog" do %>
+                        <i class="glyphicon glyphicon-comment"></i>
+                    <% end %>
+                </li>
                 <li>
                     <%= link_to dashboard_path, :class=>"cog" do %>
                       <i class="glyphicon glyphicon-cog"></i>
                     <% end %>
+                </li>
+                 <li>
+                    <%= image_tag(current_user.image, :class=> "img-circle img-thumbnail", :style=>"height:50px") %>
                 </li>
             <% else %>
                 <li><%= link_to 'Log In', new_user_session_path %></li>

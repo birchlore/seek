@@ -1,4 +1,6 @@
 class DashboardsController < ApplicationController
+  before_action :authenticate_user!
+
 
   def show
     unrated_movies = current_user.current_unrated_movies

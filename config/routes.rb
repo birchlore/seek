@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-
+  resources :conversations, only: [:index, :show, :destroy]
+  resources :messages, only: [:new, :create]
+  
   resources :users
   resources :movies
   resources :movie_ratings

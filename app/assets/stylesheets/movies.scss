@@ -8,6 +8,10 @@
   padding: 50px 0;
 }
 
+.light-border {
+  border-top: 1px solid #eee;
+}
+
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -49,6 +53,10 @@
   padding: 10px 0;
   border-left: 1px solid #eee;
   border-right: 1px solid #eee;
+}
+
+.hidden-user-data {
+  display: none;
 }
 
 @media (min-width: 768px) {

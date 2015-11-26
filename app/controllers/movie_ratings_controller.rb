@@ -1,11 +1,13 @@
 class MovieRatingsController < ApplicationController
+  before_action :authenticate_user!
+
   respond_to :html, :json
 
   def new
     unrated_movies = current_user.current_unrated_movies
     redirect_to dashboard_path if unrated_movies.count < 1
     @unrated_movie = unrated_movies.first
-    flash.now[:info] = "Let us know which of these movies you want to see. #{unrated_movies.count} remaining."
+    flash.now[:info] = "Let us know which of these new movies you want to see. #{unrated_movies.count} remaining."
   end
 
   def create

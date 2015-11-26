@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
   has_many :movie_ratings
   has_many :movies, :through => :movie_ratings
+  has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id'
+  has_many :received_messages, :class_name => 'Message', :foreign_key => 'recipient_id'
+  acts_as_messageable
 
 
 
@@ -39,11 +42,15 @@ class User < ActiveRecord::Base
     end
 
     def wants_to_see_movies
-      self.movies.where(movie_ratings: { wants_to_see: true, seen: false } )
+      self.movies.where(status:'current').where(movie_ratings: { wants_to_see: true, seen: false } )
     end
 
     def name
       first_name.titleize + last_name.upcase[0] + "."
+    end
+
+    def mailboxer_email(object)
+      email
     end
 
     def birth_year
@@ -72,6 +79,10 @@ class User < ActiveRecord::Base
     def city
       return unless self.location
       self.location.split.first.gsub(',', '')
+    end
+
+    def potential_matches
+
     end
 
 

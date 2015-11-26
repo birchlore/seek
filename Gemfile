@@ -17,6 +17,9 @@ gem 'jquery-ui-rails'
 gem 'pry-rails'
 gem 'faker'
 gem 'httparty'
+gem 'mailboxer'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -39,6 +42,8 @@ gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem "letter_opener", :group => :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

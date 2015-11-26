@@ -1,0 +1,20 @@
+<%= render 'pages/nav' %>
+<div class="container">
+<div class="spacer"></div>
+   
+  <div class="row">
+   
+     <div class="col-sm-12">
+      
+        <% if @conversations.length > 0 %>
+          <ul class="list-group conversations">
+            <%= render partial: 'conversations/conversation', collection: @conversations %>
+          </ul>
+        <% else %>
+          <h1 class="text-center">No Conversations :(</h1>
+        <% end %>
+       
+        <%= will_paginate %>
+    </div>
+  </div>
+</div>

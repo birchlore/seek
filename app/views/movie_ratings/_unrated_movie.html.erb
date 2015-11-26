@@ -1,4 +1,9 @@
 <h1><%= @unrated_movie.title %></h1>
+<div class="text-center">
+      <p>
+          <i class="glyphicon glyphicon-user"></i> <%= @unrated_movie.users_who_want_to_see.count %> people near you want to watch this. Like the movie to connect with them.
+        </p>
+    </div>
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <%= form_for(:movie_rating, :remote => true, :html => { :style=>'display:inline;' }, :url => url_for(:controller => 'movie_ratings', :action => 'index')) do |f| %>

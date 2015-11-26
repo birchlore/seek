@@ -1,0 +1,33 @@
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+          <div class="text-center">
+              <div id="modal-image">
+                <%= image_tag(current_user.image, :class=>"img-circle", :style=>"height:100px; border:2px solid #3CA8F7; margin-bottom:5px;") %>
+              </div>
+
+              <p><span id="modal-name">Mika</span><%= city(current_user) %></p>
+              <p><span id="modal-wants-to-see">Wants to see The Martian and Spectre</span></p>
+          </div>
+
+        </div>
+
+        <form id="new-message">
+           <input class="form-control" name="subject" rows="3" id="subject" type="hidden" value="re: movies">
+            <div class="modal-body form-group col-xs-12">
+              <textarea class="form-control" name="message" rows="3" id="message"></textarea>
+            </div>
+          
+
+          <input id="receiver" type="hidden" name="receiver" value="1">
+
+          <div class="modal-footer form-group">
+            <button type="submit" class="btn btn-info" style="width:100%;">Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

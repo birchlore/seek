@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @movies = Movie.where(status:"current")
     count = @movies.count
@@ -20,9 +22,9 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     if current_user.location
-      @users = @movie.users_who_want_to_see.where(location: current_user.location)
+      @users = @movie.users_who_want_to_see.where(location: current_user.location).where.not(id: current_user.id)
     else
-      @users = @movie.users_who_want_to_see
+      @users = @movie.users_who_want_to_see.where.not(id: current_user.id)
     end
   end
 
