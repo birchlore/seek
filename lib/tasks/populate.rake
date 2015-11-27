@@ -24,7 +24,7 @@ namespace :db do
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']
         birthday = random_birthday
-        user = User.new(location: "Vancouver, British Columbia", first_name: first_name, birthday: birthday, last_name: last_name, email: email, gender: genders.sample, password: '12341234', image: image, type: "fake")
+        user = User.new(location: "Vancouver, British Columbia", first_name: first_name, birthday: birthday, last_name: last_name, email: email, gender: genders.sample, password: '12341234', image: image, type: 'fake')
         if user.save
           puts "User #{@count} created" 
           @count += 1
