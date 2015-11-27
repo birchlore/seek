@@ -8,6 +8,10 @@ module UsersHelper
     ", " + current_user.city if current_user.city
   end
 
+  def potential_matches_count(user)
+    user.potential_matches ? user.potential_matches.count : 0
+  end
+
   def wants_to_see_movies(user)
     count = user.wants_to_see_movies.count
 

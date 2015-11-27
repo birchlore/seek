@@ -21,6 +21,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rollbar', '~> 2.6.3'
 gem 'rails_12factor'
+gem "koala", "~> 1.10.0rc"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

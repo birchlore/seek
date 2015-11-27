@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-  has_many :movie_ratings
+  has_many :movie_ratings, :dependent => :destroy
   has_many :movies, :through => :movie_ratings
   has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id'
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'recipient_id'
@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
 
     def wants_to_see_movies
       self.movies.where(status:'current').where(movie_ratings: { wants_to_see: true, seen: false } )
+    end
+
+    def potential_matches
+      User.joins(:movies).where(movies: { id: Movie.joins(:users).where(users: { id: self.id }).joins(:movie_ratings).where(movie_ratings: { wants_to_see: true })}).uniq
     end
 
     def name
