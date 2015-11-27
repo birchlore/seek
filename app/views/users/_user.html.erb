@@ -1,29 +1,30 @@
 
-<%= link_to "#", :data => {:toggle=> "modal", :target=> "#myModal"}, :class => "modal-link" do %>
+<%= link_to "#", :data => {:toggle=> "modal", :target=> "#myModal"}, :class => "modal-link", :id=> user.first_name do %>
   <div class="col-sm-2 col-xs-4 user">
 
     <div class="circle-avatar-background">
         <div class="circle-avatar" style="background-image:url(<%= user.image %>)"></div>
     </div>
      <div class="text-center">
-       <p><%= user.name.titleize %><%= age(user) %> <i class="glyphicon glyphicon-comment"></i></p>
+       <p><i class="glyphicon glyphicon-comment"></i> <%= user.name.titleize %><%= age(user) %></p>
     </div>
-  </div>
 
 <!-- for modal data population -->
 
-  <div class="hidden-user-data">
-    <div id="user-name">
-      <%= user.first_name.titleize %>
+    <div class="hidden-user-data">
+      <div class="user-name">
+        <%= user.first_name.titleize %>
+      </div>
+      <div class="user-id">
+        <%= user.id %>
+      </div>
+      <div class="user-image">
+        <%= user.image %>
+      </div>
+      <div class="user-wants-to-see">
+        <%= wants_to_see_movies(user) %>
+      </div>
     </div>
-    <div id="user-id">
-      <%= user.id %>
-    </div>
-    <div id="user-image">
-      <%= user.image %>
-    </div>
-    <div id="user-wants-to-see">
-      <%= wants_to_see_movies(user) %>
-    </div>
-  </div>
+
+</div>
 <% end %>

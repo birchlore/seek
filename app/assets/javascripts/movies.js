@@ -14,10 +14,10 @@ function initialize() {
 
     // get clicked on user data 
     var data = $(this).find('.hidden-user-data');
-    var image = data.find('#user-image').text();
-    var name = data.find('#user-name').text();
-    var id = data.find('#user-id').text();
-    var wants_to_see = data.find('#user-wants-to-see').text();
+    var image = data.find('.user-image').text();
+    var name = data.find('.user-name').text();
+    var id = data.find('.user-id').text();
+    var wants_to_see = data.find('.user-wants-to-see').text();
 
     console.log(image)
     console.log(name)
