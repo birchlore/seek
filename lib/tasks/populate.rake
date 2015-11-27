@@ -45,7 +45,8 @@ namespace :db do
       movie_ids = (1..Movie.count).to_a
 
       3.times do 
-        id = movie_ids.shuffle.pop
+        movie_ids.shuffle!
+        id = movie_ids.pop
         user.movie_ratings.create(movie_id: id, wants_to_see: wants_to_see?)
         @movie_rated_count += 1
         puts "#{@movie_rated_count} movies rated!"
