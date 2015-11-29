@@ -1,7 +1,11 @@
 <div class="container">
-  <div class="unrated">
     <% if @unrated_movie %>
-      <%= render partial: 'unrated_movie' %>
+      <div class="matches">
+        <%= render 'users/potential_matches' %>
+      </div>
+      <div class="unrated">
+        <%= render partial: 'unrated_movie' %>
+      </div>
     <% end %>
   </div>
 </div>

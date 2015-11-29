@@ -25,7 +25,6 @@ module UsersHelper
   end
 
   def potential_matches_count(user)
-    binding.pry
     user.potential_matches ? user.potential_matches.count : 0
   end
 

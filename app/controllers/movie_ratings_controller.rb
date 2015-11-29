@@ -7,6 +7,7 @@ class MovieRatingsController < ApplicationController
     unrated_movies = current_user.current_unrated_movies
     redirect_to dashboard_path if unrated_movies.count < 1
     @unrated_movie = unrated_movies.first
+    @potential_matches = current_user.potential_matches.count
     flash.now[:info] = "Let us know which of these new movies you want to see. #{unrated_movies.count} remaining."
   end
 
@@ -19,6 +20,7 @@ class MovieRatingsController < ApplicationController
 
     if unrated_movies.count > 0
       @unrated_movie = unrated_movies.first
+      @potential_matches = current_user.potential_matches.count
       @flash_message = "Let us know which of these movies you want to see. #{unrated_movies.count} remaining."
       render :create
     else

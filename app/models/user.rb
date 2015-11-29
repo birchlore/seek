@@ -49,7 +49,11 @@ class User < ActiveRecord::Base
     end
 
     def potential_matches
-      User.joins(:movies).where(movies: { id: Movie.joins(:users).where(users: { id: self.id }).joins(:movie_ratings).where(movie_ratings: { wants_to_see: true })}).uniq
+      movie_ids = self.movie_ratings.where(wants_to_see: true).map(&:movie_id)
+      # find other users who rated 1 in those movies and get user_ids
+      other_user_ids = MovieRating.where(wants_to_see: true).where(movie_id: movie_ids).where.not(user_id: self.id).map(&:user_id).uniq
+      # find those users with id 
+      other_users = User.where(id: other_user_ids)
     end
 
     def name
@@ -86,10 +90,6 @@ class User < ActiveRecord::Base
     def city
       return unless self.location
       self.location.split.first.gsub(',', '')
-    end
-
-    def potential_matches
-
     end
 
 
