@@ -5,20 +5,12 @@ class ConversationsController < ApplicationController
   before_action :get_box, only: [:index]
  
   def index
-    if @box.eql? "inbox"
-      @conversations = @mailbox.inbox
-    elsif @box.eql? "sent"
-      @conversations = @mailbox.sentbox
-    else
-      @conversations = @mailbox.trash
-    end
+    @conversations = @mailbox.conversations
     @conversations = @conversations.paginate(page: params[:page], per_page: 10)
   end
 
   def show
-    @job = Job.new
     @conversation.mark_as_read(current_user)
-    @respondable = current_user.can_respond?
   end
 
   def reply

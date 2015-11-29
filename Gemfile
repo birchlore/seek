@@ -22,6 +22,9 @@ gem 'bootstrap-will_paginate'
 gem 'rollbar', '~> 2.6.3'
 gem 'rails_12factor'
 gem "koala", "~> 1.10.0rc"
+gem "paperclip", "~> 4.2"
+gem 'aws-sdk-v1'
+gem 'rmagick'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

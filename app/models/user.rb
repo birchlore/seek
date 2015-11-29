@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id'
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'recipient_id'
   acts_as_messageable
+  has_attached_file :avatar, 
+                    styles: { :medium => "200x200>", :thumb => "50x50>" }
+  validates_attachment_content_type :avatar, :content_type => /^image\/(png|gif|jpeg|jpg)/
 
 
 
@@ -50,7 +53,7 @@ class User < ActiveRecord::Base
     end
 
     def name
-      first_name.titleize + last_name.upcase[0] + "."
+      first_name.titleize + " " + last_name.upcase[0] + "."
     end
 
     def mailboxer_email(object)

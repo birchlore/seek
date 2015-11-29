@@ -6,10 +6,10 @@ module ConversationsHelper
   end
 
   def participant_names(conversation)
-    conversation.receipts.reject { |p| p.receiver == current_user }.collect {|p| p.receiver.name }.uniq.join(" ,")
+    conversation.receipts.reject { |p| p.receiver == current_user }.collect {|p| p.receiver.first_name.titleize }.uniq.join(" ,")
   end
 
-   def participant_ids(conversation)
+  def participant_ids(conversation)
     conversation.receipts.reject { |p| p.receiver == current_user }.collect {|p| p.receiver.id }.uniq.join(" ,")
   end
 

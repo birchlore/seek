@@ -1,37 +1,36 @@
-<div class="movie">
-  <div class="container">
-    <div class="row vertical-align">
-    <div class="col-xs-10">
-      <p><%= link_to movie_path(movie) do %>
-          <i class="glyphicon glyphicon-user"></i> <%= movie.users_who_want_to_see.count %> people near you want to watch this
+<div class="movie col-sm-6">
+      <div class="vertical-align">
+      <div class="col-sm-10">
+        <p><%= link_to movie_path(movie) do %>
+            <i class="glyphicon glyphicon-user"></i> <%= movie.users_who_want_to_see.count %> people near you want to watch this
+          <% end %>
+          </p>
+      </div>
+
+      <div class="col-sm-2">
+        <%= form_for(:movie_rating, :remote => true, :url => movie_rating_path(movie), :html => {:method => :patch}) do |f| %>
+          <%= f.hidden_field :movie_id, :value => movie.id %>
+          <%= f.hidden_field :seen, :value => true %>
+          <div class="seen">
+            <%= f.submit("seen it", :class=>"link") %>
+          </div>
+           
         <% end %>
-        </p>
+      </div>
+      </div>
+
+    <div class="text-center videoWrapper clearfix">
+      <%= movie.embed.html_safe %>
     </div>
 
-    <div class="col-xs-2">
-      <%= form_for(:movie_rating, :remote => true, :url => movie_rating_path(movie), :html => {:method => :patch}) do |f| %>
-        <%= f.hidden_field :movie_id, :value => movie.id %>
-        <%= f.hidden_field :seen, :value => true %>
-        <div class="seen">
-          <%= f.submit("seen it", :class=>"link") %>
-        </div>
-         
-      <% end %>
+
+    
+    <div class="text-center">
+      <%= link_to "Find someone to go with!", movie_path(movie), :class=>"btn btn-info" %>
     </div>
-    </div>
+
+   
+
+    <div class="spacer"></div>
   </div>
 
-  <div class="text-center videoWrapper clearfix">
-    <%= movie.embed.html_safe %>
-  </div>
-
-
-  
-  <div class="text-center">
-    <%= link_to "Find someone to go with!", movie_path(movie), :class=>"btn btn-info" %>
-  </div>
-
- 
-
-  <div class="spacer"></div>
-</div>

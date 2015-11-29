@@ -4,11 +4,28 @@ module UsersHelper
     " " + user.age if user.age
   end
 
+  def avatar_image(user, size)
+    if user.avatar_file_size
+      image_tag(current_user.avatar(size.to_sym), :class=> "avatar img-circle img-thumbnail", :style=>"width: 50px; height:50px")
+    else
+      image_tag(current_user.image, :class=> "avatar img-circle img-thumbnail", :style=>"height:50px")
+    end
+  end
+
+  def avatar_source(user,size)
+    if user.avatar_file_size
+      user.avatar(size.to_sym)
+    else
+      user.image
+    end
+  end
+
   def city(user)
     ", " + current_user.city if current_user.city
   end
 
   def potential_matches_count(user)
+    binding.pry
     user.potential_matches ? user.potential_matches.count : 0
   end
 

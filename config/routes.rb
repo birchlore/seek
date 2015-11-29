@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :conversations, only: [:index, :show, :destroy]
   resources :messages, only: [:new, :create]
   
   resources :users
@@ -15,6 +14,17 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   root to: 'pages#index'
+
+   resources :conversations, only: [:index, :show, :destroy] do
+    collection do
+      delete :empty_trash
+    end
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

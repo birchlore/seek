@@ -1,0 +1,9 @@
+<div style="display:none;">
+  <%= form_for current_user, id: 'photoinfo', html: { multipart: true }, method: :patch, :remote => true do |f| %>
+
+    <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg, image/jpg', id: 'uploadAvatar' %>
+
+    <%= f.submit 'Submit Photo', id: 'submitPhoto' %>
+
+    <% end %>
+</div>

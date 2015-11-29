@@ -31,13 +31,48 @@ function initialize() {
     modal.find('#modal-image').find('img').attr('src', image);
     modal.find('#modal-name').text(name);
     modal.find('#receiver').val(id.trim());
-    modal.find('#modal-wants-to-see').text(wants_to_see);
-
-    
+    modal.find('#modal-wants-to-see').text(wants_to_see); 
   });
 
 
+// submits data when modal submitted
+
+  $('.modal').on('submit', '#new-message', function(event){
+    console.log(event);
+    event.preventDefault();
+
+     var id = $('#receiver').val();
+     var message = $('#message').val();
+     var subject = $('#subject').val();
+
+
+    $.ajax({
+      url: '/messages',
+      type: "post",
+      async:false,
+      dataType: "html",
+      data: {
+        message: message,
+        receiver: id,
+        subject: subject
+      },
+      success: function(data) {
+        // hourly = data.hourly_rate;
+        console.log ("message sent")
+        $('#myModal').hide();
+        window.location = "/conversations"
+      },
+      error: function(data){
+        console.log ("nooope messages")
+        console.log(data)
+      }
+  
+    });
+
+  });
 }
+
+
 
 
 $(document).ready(initialize);

@@ -24,7 +24,7 @@
                 </li>
               
                  <li>
-                    <%= image_tag(current_user.image, :class=> "img-circle img-thumbnail", :style=>"height:50px") %>
+                    <%= avatar_image(current_user, "thumb") %>
                 </li>
             <% else %>
                 <li><%= link_to 'Log In', new_user_session_path %></li>
@@ -34,4 +34,6 @@
     </div>
   </div>
 </nav>
+
+<%= render 'dashboards/image_upload' %>
 
