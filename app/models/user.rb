@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
         user.first_name = auth.extra.raw_info.first_name   # assuming the user model has a name
         user.last_name = auth.extra.raw_info.last_name   # assuming the user model has a name
         user.image = auth.info.image # assuming the user model has an image
-        user.liked_movies = auth.extra.raw_info.movies
       end
     end
 
@@ -49,9 +48,9 @@ class User < ActiveRecord::Base
     end
 
     def potential_matches
-      movie_ids = self.movie_ratings.where(wants_to_see: true).map(&:movie_id)
+      movie_ids = self.movie_ratings.where(wants_to_see: true, seen: false).map(&:movie_id)
       # find other users who rated 1 in those movies and get user_ids
-      other_user_ids = MovieRating.where(wants_to_see: true).where(movie_id: movie_ids).where.not(user_id: self.id).map(&:user_id).uniq
+      other_user_ids = MovieRating.where(wants_to_see: true, seen: false).where(movie_id: movie_ids).where.not(user_id: self.id).map(&:user_id).uniq
       # find those users with id 
       other_users = User.where(id: other_user_ids)
     end

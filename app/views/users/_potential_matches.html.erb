@@ -1,8 +1,13 @@
-  <div class="col-sm-2">
+  <div class="row">
     <h1><i class="glyphicon glyphicon-user"></i> <%= @potential_matches %></h1>
-    <% if @potential_matches < 1 %>
+    
       <div class="text-center">
-        <p style="font-size:10px">Liking movies gets you more connections</p>
+        <p style="font-size:10px">
+           <% if @potential_matches < 1 %>
+              Liking movies gets you more connections
+          <% else %>
+              You're connected to <%= @potential_matches %> people who love movies
+          <% end %>
+      </p>
       </div>
-    <% end %>
   </div>
