@@ -2,7 +2,7 @@
       <div class="vertical-align">
       <div class="col-sm-10">
         <p><%= link_to movie_path(movie) do %>
-            <i class="glyphicon glyphicon-user"></i> <%= movie.users_who_want_to_see.count %> people near you want to watch this
+            <i class="glyphicon glyphicon-user"></i> <%= movie.users_who_want_to_see.count - 1 %> people near you want to watch this
           <% end %>
           </p>
       </div>
