@@ -22,6 +22,8 @@
                         <i class="glyphicon glyphicon-comment"></i>
                     <% end %>
                 </li>
+
+                 <li><%= link_to 'Log Out', destroy_user_session_path %></li>
               
                  <li>
                     <%= avatar_image(current_user, "thumb") %>
