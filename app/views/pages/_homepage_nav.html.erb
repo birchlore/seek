@@ -17,9 +17,8 @@
             <ul class="nav navbar-nav navbar-right">  
             <% if user_signed_in? %>
                 <li><%= link_to 'Dashboard', dashboard_path %></li>
-                <li><%= link_to 'Log Out', destroy_user_session_path %></li>
+                <li><%= link_to 'Log Out', destroy_user_session_path(current_user) %></li>
             <% else %>
-                <li><%= link_to 'Log In', new_user_session_path %></li>
                 <li><%= link_to 'Signup for Free', user_omniauth_authorize_path(:facebook), :class=>"signup" %></li>
             <% end %>
           </ul>

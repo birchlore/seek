@@ -81,7 +81,7 @@ Devise.setup do |config|
   # passing skip: :sessions to `devise_for` in your config/routes.rb
   config.skip_session_storage = [:http_auth]
   config.omniauth :facebook, Figaro.env.facebook_app_id, Figaro.env.facebook_app_secret, 
-                  scope: 'email, user_friends, public_profile, user_birthday, user_location',
+                  scope: 'email, public_profile, user_birthday, user_location',
                   info_fields: 'email,first_name,last_name,gender,birthday,location',
                   :image_size => 'large'
 
