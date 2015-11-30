@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'movie_ratings/create'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks", sessions: "users/sessions" }
 
   resources :messages, only: [:new, :create]
   
