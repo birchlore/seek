@@ -2,6 +2,8 @@ namespace :db do
   desc "fill database"
   task :populate => :environment do
     require 'faker'
+    include ActionView::Helpers
+
 
 
     def random_birthday
@@ -17,14 +19,14 @@ namespace :db do
       @count = 1
       genders = ["male", "female"]
 
-      100.times do
+      1.times do
         response = HTTParty.get("http://api.randomuser.me/").parsed_response
-        image = response['results'][0]['user']['picture']['medium']
+        image = "avatars/#{@count}.jpg"
         first_name = response['results'][0]['user']['name']['first']
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']
         birthday = random_birthday
-        user = User.new(location: "Vancouver, British Columbia", first_name: first_name, birthday: birthday, last_name: last_name, email: email, gender: genders.sample, password: '12341234', image: image, seed: true)
+        user = User.new(location: "Vancouver, British Columbia", first_name: first_name, birthday: birthday, last_name: last_name, email: email, password: '12341234', image: image, seed: true)
         if user.save
           puts "User #{@count} created" 
           @count += 1
@@ -34,7 +36,7 @@ namespace :db do
 
     def wants_to_see?
       num = (1..10).to_a.sample
-      num < 4 ? true : false
+      num < 5 ? true : false
     end
 
     puts "creating 30 movie ratings..."
