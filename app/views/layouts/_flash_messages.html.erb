@@ -1,6 +1,6 @@
 <div>
   <% flash.each do |key, value| %>
-      <% unless key == "alert" %>
+      <% unless value.blank? %>
         <div class="<%= flash_class(key) %> <%= key %> fade in text-center">
           <a href="#" data-dismiss="alert" class="close">×</a>
           <%= value %>
