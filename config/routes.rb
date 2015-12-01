@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/about'
   get 'pages/privacy'
+  post '/analytics/trailers', :to => 'analytics#increase_trailer_views'
 
   root to: 'pages#index'
 

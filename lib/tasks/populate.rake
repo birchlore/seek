@@ -21,7 +21,7 @@ namespace :db do
 
       1.times do
         response = HTTParty.get("http://api.randomuser.me/").parsed_response
-        image = "avatars/#{@count}.jpg"
+        image = "assets/avatars/#{@count}.jpg"
         first_name = response['results'][0]['user']['name']['first']
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']

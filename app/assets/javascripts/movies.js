@@ -34,6 +34,27 @@ function initialize() {
     modal.find('#modal-wants-to-see').text(wants_to_see); 
   });
 
+// Tracks youtube iframe clicks
+
+$('body').bind('.videoWrapper iframe').iframeTracker({
+      blurCallback: function increaseYoutubeViews() {
+           $.ajax({
+              url: '/analytics/trailers',
+              type: "post",
+              async:true,
+              dataType: "html",
+              success: function() {
+                // hourly = data.hourly_rate;
+                console.log ("trailer watched")
+              },
+              error: function(){
+                console.log ("error with ajax")
+              }
+          
+          });
+      }
+});
+
 
 // submits data when modal submitted
 

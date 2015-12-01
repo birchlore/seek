@@ -1,14 +1,21 @@
 
 <%= link_to "#", :data => {:toggle=> "modal", :target=> "#myModal"}, :class => "modal-link", :id=> user.first_name do %>
+
+<% if fluid_width %>
   <div class="col-sm-2 col-xs-4 user">
+<% else %>
+  <div class="user" style="width:50px; height: 50px; margin: 5px 5px 5px 0; display: inline-block;">
+<% end %>
 
     <div class="circle-avatar-background">
         <div class="circle-avatar" style='<%= "background-image:url(#{avatar_source(user, 'medium')})" %>'>
         </div>
     </div>
-     <div class="text-center">
-       <p><i class="glyphicon glyphicon-comment"></i> <%= user.name.titleize %><%= age(user) %></p>
-    </div>
+    <% if show_user_details %>
+       <div class="text-center">
+         <p><i class="glyphicon glyphicon-comment"></i> <%= user.name.titleize %><%= age(user) %></p>
+      </div>
+    <% end %>
 
 <!-- for modal data population -->
 

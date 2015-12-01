@@ -20,12 +20,9 @@ class MoviesController < ApplicationController
   end
 
   def show
+    current_user.analytic.increase_movie_clicks_count
     @movie = Movie.find(params[:id])
-    if current_user.location
-      @users = @movie.users_who_want_to_see.where(location: current_user.location).where.not(id: current_user.id)
-    else
-      @users = @movie.users_who_want_to_see.where.not(id: current_user.id)
-    end
+    @users = current_user.matches_on_movie(@movie)
   end
 
   protected

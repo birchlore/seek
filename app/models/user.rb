@@ -6,11 +6,13 @@ class User < ActiveRecord::Base
   has_many :movies, :through => :movie_ratings
   has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id'
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'recipient_id'
+  has_one :analytic, :dependent => :destroy
   acts_as_messageable
   has_attached_file :avatar, 
-                    styles: { :medium => "200x200>", :thumb => "50x50>" }
+                    styles: { :medium => "200x200>", :thumb => "50x50>", :micro => "30x30>" }
   validates_attachment_content_type :avatar, :content_type => /^image\/(png|gif|jpeg|jpg)/
-
+  before_create :build_default_profile
+  after_create :new_user_notification
 
 
     def self.from_omniauth(auth)
@@ -89,6 +91,27 @@ class User < ActiveRecord::Base
     def city
       return unless self.location
       self.location.split.first.gsub(',', '')
+    end
+
+    def matches_on_movie(movie)
+      if self.location
+        @users = movie.users_who_want_to_see.where(location: self.location).where.not(id: self.id)
+      else
+        @users = movie.users_who_want_to_see.where.not(id: self.id)
+      end
+    end
+
+
+    private
+
+    def build_default_profile
+      @analytic = Analytic.new()
+      self.analytic = @analytic
+      true
+    end
+
+    def new_user_notification
+      NotificationMailer.new_user_notification(self.id).deliver_now
     end
 
 

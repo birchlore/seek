@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  movie_clicks: 1
+  user_clicks: 1
+  logins: 1
+
+two:
+  user_id: 
+  movie_clicks: 1
+  user_clicks: 1
+  logins: 1
