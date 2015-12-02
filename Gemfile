@@ -41,7 +41,6 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'mailgun_rails'
 gem 'rails_serve_static_assets'
-gem 'sprockets_better_errors'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
