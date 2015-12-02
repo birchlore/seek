@@ -4,6 +4,19 @@ function initialize() {
 
   $('.seen').on('click', function(){ 
     $(this).closest('.movie').hide()
+    $.ajax({
+              url: '/dashboard/matches',
+              type: "post",
+              async:true,
+              success: function() {
+                // hourly = data.hourly_rate;
+                console.log ("matches updated")
+              },
+              error: function(){
+                console.log ("error with ajax")
+              }
+          
+          });
   });
 
   // populates modal data with whichever user is clicked
@@ -34,7 +47,7 @@ function initialize() {
     modal.find('#modal-wants-to-see').text(wants_to_see); 
   });
 
-// Tracks youtube iframe clicks
+// Tracks trailer views via youtube iframe clicks
 
 $('body').bind('.videoWrapper iframe').iframeTracker({
       blurCallback: function increaseYoutubeViews() {
@@ -53,6 +66,26 @@ $('body').bind('.videoWrapper iframe').iframeTracker({
           
           });
       }
+});
+
+
+// Tracks user clicks
+
+$('.circle-avatar').on('click', function(){
+     $.ajax({
+        url: '/analytics/users',
+        type: "post",
+        async:true,
+        dataType: "html",
+        success: function() {
+          // hourly = data.hourly_rate;
+          console.log ("modal opened")
+        },
+        error: function(){
+          console.log ("error with ajax")
+        }
+    
+    });
 });
 
 

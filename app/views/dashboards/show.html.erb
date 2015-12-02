@@ -1,8 +1,11 @@
 <%= render 'pages/nav', :type=>"" %>
-<%= render 'users/potential_matches' %>
 
-<div class="spacer">
-    <h1>Now Playing</h1>
+<div class="potential">
+  <%= render 'users/potential_matches' %>
+</div>
+
+<div class="small-spacer">
+    <h3>Now Playing</h3>
 </div>
 <div class="container">
   <%= render @movies %>

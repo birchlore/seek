@@ -4,8 +4,6 @@ namespace :db do
     require 'faker'
     include ActionView::Helpers
 
-
-
     def random_birthday
       month = "01"
       day = "10"
@@ -14,14 +12,15 @@ namespace :db do
     end
   
 
-    puts "creating 10 users..."  
+    puts "creating 28 dudes..."  
+
+  
 
       @count = 1
-      genders = ["male", "female"]
 
-      1.times do
-        response = HTTParty.get("http://api.randomuser.me/").parsed_response
-        image = "assets/avatars/#{@count}.jpg"
+      28.times do
+        response = HTTParty.get("http://api.randomuser.me/?gender=male").parsed_response
+        image = "assets/avatars/m/#{@count}.jpg"
         first_name = response['results'][0]['user']['name']['first']
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']
@@ -31,6 +30,27 @@ namespace :db do
           puts "User #{@count} created" 
           @count += 1
         end
+        sleep(0.1)
+      end
+
+      puts "creating 72 chicks..."
+
+      @count = 1
+
+      72.times do
+        response = HTTParty.get("http://api.randomuser.me/?gender=female").parsed_response
+        image = "assets/avatars/f/#{@count}.jpg"
+        first_name = response['results'][0]['user']['name']['first']
+        last_name = response['results'][0]['user']['name']['last']
+        email = response['results'][0]['user']['email']
+        birthday = random_birthday
+        user = User.new(location: "Vancouver, British Columbia", first_name: first_name, birthday: birthday, last_name: last_name, email: email, password: '12341234', image: image, seed: true)
+        if user.save
+          puts "User #{@count} created" 
+          @count += 1
+        end
+        sleep(0.1)
+
       end
 
 
@@ -54,12 +74,6 @@ namespace :db do
         puts "#{@movie_rated_count} movies rated!"
       end
     end
-
-
-
-
-
-
 
   end
 end

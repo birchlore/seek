@@ -1,9 +1,4 @@
 <%= render 'pages/homepage_nav', :type=>"" %>
 
-<div class="hero">
-  
-  <h1>Watch better movies, together.</h1>
-  <h2>Seek shows you people nearby who want to see the same movies as you do.</h2>
+<%= render partial: ab_test(:user_signup, "pages/heroes/b", "pages/heroes/d") %>
 
-  <%= render 'devise/facebook' %>
-</div>

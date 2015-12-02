@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Split::Dashboard, at: 'split'
+  
   get 'movie_ratings/create'
 
   devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks", sessions: "users/sessions" }
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/privacy'
   post '/analytics/trailers', :to => 'analytics#increase_trailer_views'
+  post '/analytics/users', :to => 'analytics#increase_user_clicks'
+  post '/dashboard/matches', :to => 'dashboards#potential_matches'
 
   root to: 'pages#index'
 

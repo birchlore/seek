@@ -12,4 +12,9 @@ class DashboardsController < ApplicationController
     end
   end
 
+  def potential_matches
+    @potential_matches = current_user.potential_matches.count
+    render :potential_matches
+  end
+
 end

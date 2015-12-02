@@ -4,7 +4,8 @@
  <div class="spacer">
     <%= link_to "< Back to conversations", conversations_path %>
  </div>
- <%= image_tag(User.find(participant_ids(@conversation)).image, :class=>"img-thumbnail") %>
+ 
+
 <div class="panel panel-default">
   <div class="panel-heading">
     Conversation with <%= participant_names(@conversation) %> 

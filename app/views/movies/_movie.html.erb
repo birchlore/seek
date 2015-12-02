@@ -9,7 +9,7 @@
           </p>
           <div>
               <% if @users %>
-                <% @users = @users.first(3) %>
+                <% @users = @users.order("RANDOM()").first(3) %>
                 <%= render @users, :show_user_details => false, :fluid_width => false %> 
                 <div class="clearfix"></div>
               <% end %>

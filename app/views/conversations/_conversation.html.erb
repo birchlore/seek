@@ -1,10 +1,15 @@
 <li class="list-group-item<%= " unread" if conversation.is_unread?(current_user) %>">
    <%= link_to conversation_path(conversation) do %>
       <div class="row">
-        <div class="pull-left" style="margin: 0 10px;">
-           <%= image_tag(conversation.recipients.first.image, :class=>"img-circle img-thumbnail", :style=>"height: 50px;") %>
+        <div class="col-sm-1 col-xs-2">
+        <% conversation.participants.each do |p| %>
+          <% unless p == current_user %>
+            <div class="circle-avatar" style='<%= "background-image:url(#{avatar_source(p, 'thumb')})" %>'>
+          </div>
+          <% end %>
+        <% end %>
         </div>
-        <div class="pull-left">
+        <div class="col-sm-11 col-xs-10">
           Conversation with <%= participant_names(conversation) %>
           <p style="color: #666;"><%= conversation.messages.last.sender.first_name %> said <span style="font-style:italic; font-weight: 100;"><%= conversation.messages.last.body.first(20) %></span> <%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
         </div>

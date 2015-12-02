@@ -8,6 +8,10 @@
    
      <div class="col-sm-12">
       
+      <div class="small-spacer text-center alert alert-info">
+        <p>Act quickly because conversations & connections will disappear forever once you have no movies in common.</p>
+      </div>
+
         <% if @conversations.length > 0 %>
           <ul class="list-group conversations">
             <%= render partial: 'conversations/conversation', collection: @conversations %>
