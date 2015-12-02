@@ -20,7 +20,6 @@ gem 'mailboxer'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rollbar', '~> 2.6.3'
-gem 'rails_12factor'
 gem "koala", "~> 1.10.0rc"
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk-v1'
@@ -42,6 +41,7 @@ gem 'omniauth-facebook'
 gem 'figaro'
 gem 'mailgun_rails'
 gem 'rails_serve_static_assets'
+gem 'sprockets_better_errors'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -53,6 +53,8 @@ gem 'rails_serve_static_assets'
 # gem 'capistrano-rails', group: :development
 
 gem "letter_opener", :group => :development
+gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
