@@ -40,7 +40,14 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'mailgun_rails'
-gem 'rails_serve_static_assets'
+
+group :production do
+  gem 'rails_serve_static_assets'
+
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+  gem 'rails_12factor'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -52,7 +59,7 @@ gem 'rails_serve_static_assets'
 # gem 'capistrano-rails', group: :development
 
 gem "letter_opener", :group => :development
-gem 'rails_12factor', group: :production
+
 
 
 group :development, :test do
