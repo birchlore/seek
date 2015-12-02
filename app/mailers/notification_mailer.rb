@@ -21,7 +21,7 @@ class NotificationMailer < ApplicationMailer
   private
 
   def set_recipients
-    @recipients = ["jackson@pixelburst.co"]
+    @recipients = ["jackson@pixelburst.co", "rnadel@gmail.com"]
   end
 
 end
