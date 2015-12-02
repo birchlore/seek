@@ -25,11 +25,16 @@ Rails.application.configure do
     :path => "/:class/:attachment/:id_partition/:style/:filename"
   }
 
-  config.action_mailer.delivery_method = :mailgun
-    config.action_mailer.mailgun_settings = {
-            api_key: Figaro.env.mailgun_api_key,
-            domain: Figaro.env.mailgun_domain
-    }
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for mailgun
+    ActionMailer::Base.smtp_settings = {
+      port: 587,
+      address: 'smtp.mailgun.org',
+      domain: ENV['mailgun_domain'],
+      user_name: ENV['mailgun_username'],
+      password: ENV['mailgun_password'],
+      authentication: :plain
+  }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
