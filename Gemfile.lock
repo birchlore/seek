@@ -303,6 +303,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.2)
   rails_12factor
+  rails_serve_static_assets
   redis
   redis-rails
   rmagick
