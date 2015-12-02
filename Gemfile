@@ -12,13 +12,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'jquery-ui-rails'
 gem 'pry-rails'
 gem 'faker'
 gem 'httparty'
 gem 'mailboxer'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'twitter-bootstrap-rails'
 gem 'rollbar', '~> 2.6.3'
 gem 'rails_12factor'
 gem "koala", "~> 1.10.0rc"
@@ -31,6 +31,7 @@ gem 'redis'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
