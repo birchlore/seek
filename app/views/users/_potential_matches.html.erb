@@ -1,14 +1,12 @@
-  <div class="row">
-    <h1><i class="glyphicon glyphicon-user"></i> <%= @potential_matches %></h1>
-    
+  <div class="row">    
       <div class="text-center">
             <div class="small-spacer text-center alert alert-info">
 
             <p style="font-size:14px">
                <% if @potential_matches < 1 %>
-                  Like movies to connect with other people.
+                  <i class="glyphicon glyphicon-user"></i> Like movies to connect with other people.
               <% else %>
-                  <%= @potential_matches %> people want to see one of the same movies as you. Act quickly because conversations & connections will disappear forever once you have no movies in common.
+                  <i class="glyphicon glyphicon-user"></i> <%= @potential_matches %> people want to see one of the same movies as you. Message them to go see something.
               <% end %>
           </p>
         </div>
