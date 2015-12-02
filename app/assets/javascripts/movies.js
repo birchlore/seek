@@ -1,5 +1,6 @@
-function initialize() {
+function initializeMovies() {
 
+  console.log('initializing movies!')
   // hides a movie on dashboard when user clicks 'seen'
 
   $('.seen').on('click', function(){ 
@@ -127,4 +128,4 @@ $('.circle-avatar').on('click', function(){
 }
 
 
-$(document).ready(initialize);
+$(document).ready(initializeMovies);

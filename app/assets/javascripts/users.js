@@ -1,5 +1,5 @@
-function initialize() {
-console.log('initialized')
+function initializeUsers() {
+console.log('initialized users!')
   $('.avatar').on('click', function(){
     
     $('#uploadAvatar').click();
@@ -26,4 +26,4 @@ function readURL(input) {
   }
 
 
-$(document).ready(initialize);
+$(document).ready(initializeUsers);
