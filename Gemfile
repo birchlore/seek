@@ -27,6 +27,7 @@ gem 'aws-sdk-v1'
 gem 'rmagick'
 gem 'split', require: 'split/dashboard'
 gem 'redis-rails'
+gem 'redis'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
