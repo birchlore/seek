@@ -1,6 +1,6 @@
 function initializeMovies() {
 
-  console.log('initializing movie time!')
+  console.log('initializing movies!')
   // hides a movie on dashboard when user clicks 'seen'
 
   $('.seen').on('click', function(){ 
@@ -50,7 +50,7 @@ function initializeMovies() {
         dataType: "html",
         success: function() {
           // hourly = data.hourly_rate;
-          console.log ("profile viewed")
+          console.log ("modal opened")
         },
         error: function(){
           console.log ("error with ajax")
@@ -63,7 +63,7 @@ function initializeMovies() {
 
 // Tracks trailer views via youtube iframe clicks
 
-$('body').find('.videoWrapper iframe').iframeTracker({
+$('body').delegate('.videoWrapper iframe').iframeTracker({
       blurCallback: function increaseYoutubeViews() {
            $.ajax({
               url: '/analytics/trailers',
