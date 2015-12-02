@@ -20,7 +20,8 @@ namespace :db do
 
       28.times do
         response = HTTParty.get("http://api.randomuser.me/?gender=male").parsed_response
-        image = Figaro.env.root_url + "assets/avatars/m/#{@count}.jpg"
+        
+        image = "https://s3-us-west-2.amazonaws.com/getseekapp/avatars/m/#{@count}.jpg"
         first_name = response['results'][0]['user']['name']['first']
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']
@@ -39,7 +40,7 @@ namespace :db do
 
       72.times do
         response = HTTParty.get("http://api.randomuser.me/?gender=female").parsed_response
-        image = Figaro.env.root_url + "assets/avatars/f/#{@count}.jpg"
+        image = "https://s3-us-west-2.amazonaws.com/getseekapp/avatars/f/#{@count}.jpg"
         first_name = response['results'][0]['user']['name']['first']
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']
