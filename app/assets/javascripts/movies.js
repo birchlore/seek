@@ -20,23 +20,18 @@ function initializeMovies() {
           });
   });
 
-  // populates modal data with whichever user is clicked
+  // populates modal data with whichever user is clicked and updates analytics
 
-  $('.modal-link').on('click', function(){
+  $('.circle-avatar').on('click', function(){
 
     console.log('modal clicked')
 
     // get clicked on user data 
-    var data = $(this).find('.hidden-user-data');
+    var data = $(this).closest('.modal-link').find('.hidden-user-data');
     var image = data.find('.user-image').text();
     var name = data.find('.user-name').text();
     var id = data.find('.user-id').text();
     var wants_to_see = data.find('.user-wants-to-see').text();
-
-    console.log(image)
-    console.log(name)
-    console.log(id)
-    console.log(wants_to_see)
 
     // populate that data in modal
 
@@ -46,11 +41,29 @@ function initializeMovies() {
     modal.find('#modal-name').text(name);
     modal.find('#receiver').val(id.trim());
     modal.find('#modal-wants-to-see').text(wants_to_see); 
+
+
+    $.ajax({
+        url: '/analytics/users',
+        type: "post",
+        async:true,
+        dataType: "html",
+        success: function() {
+          // hourly = data.hourly_rate;
+          console.log ("profile viewed")
+        },
+        error: function(){
+          console.log ("error with ajax")
+        }
+    
+    });
+
+
   });
 
 // Tracks trailer views via youtube iframe clicks
 
-$('body').delegate('.videoWrapper iframe').iframeTracker({
+$('body').find('.videoWrapper iframe').iframeTracker({
       blurCallback: function increaseYoutubeViews() {
            $.ajax({
               url: '/analytics/trailers',
@@ -70,24 +83,6 @@ $('body').delegate('.videoWrapper iframe').iframeTracker({
 });
 
 
-// Tracks user clicks
-
-$('body').delegate('.circle-avatar').on('click', function(){
-     $.ajax({
-        url: '/analytics/users',
-        type: "post",
-        async:true,
-        dataType: "html",
-        success: function() {
-          // hourly = data.hourly_rate;
-          console.log ("modal opened")
-        },
-        error: function(){
-          console.log ("error with ajax")
-        }
-    
-    });
-});
 
 
 // submits data when modal submitted
