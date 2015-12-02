@@ -50,7 +50,7 @@ function initializeMovies() {
 
 // Tracks trailer views via youtube iframe clicks
 
-$('body').bind('.videoWrapper iframe').iframeTracker({
+$('body').delegate('.videoWrapper iframe').iframeTracker({
       blurCallback: function increaseYoutubeViews() {
            $.ajax({
               url: '/analytics/trailers',
@@ -72,7 +72,7 @@ $('body').bind('.videoWrapper iframe').iframeTracker({
 
 // Tracks user clicks
 
-$('.circle-avatar').on('click', function(){
+$('body').delegate('.circle-avatar').on('click', function(){
      $.ajax({
         url: '/analytics/users',
         type: "post",
