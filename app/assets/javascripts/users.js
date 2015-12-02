@@ -26,10 +26,4 @@ function readURL(input) {
   }
 
 
-
-
-
-
-
 $(document).ready(initialize);
-$(document).on('page:load', initialize);
