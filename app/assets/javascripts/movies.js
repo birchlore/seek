@@ -1,6 +1,6 @@
 function initializeMovies() {
 
-  console.log('initializing movies!')
+  console.log('initializing movie time!')
   // hides a movie on dashboard when user clicks 'seen'
 
   $('.seen').on('click', function(){ 
