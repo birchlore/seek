@@ -287,3 +287,9 @@ a:hover {
 .light-border {
   border: 1px solid #ccc;
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 80px;
+  }
+}
