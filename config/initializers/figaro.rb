@@ -1,1 +1,1 @@
-Figaro.require_keys("facebook_app_id", "facebook_app_secret", "S3_BUCKET_NAME", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "mailgun_api_key", "mailgun_domain")
+Figaro.require_keys("facebook_app_id", "facebook_app_secret", "S3_BUCKET_NAME", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "mailgun_api_key", "mailgun_domain", "root_url")

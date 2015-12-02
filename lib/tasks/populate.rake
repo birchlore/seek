@@ -7,7 +7,7 @@ namespace :db do
     def random_birthday
       month = "01"
       day = "10"
-      year = (1968..1995).to_a.sample
+      year = (1982..1995).to_a.sample
       "#{month}/#{day}/#{year}"
     end
   
@@ -20,7 +20,7 @@ namespace :db do
 
       28.times do
         response = HTTParty.get("http://api.randomuser.me/?gender=male").parsed_response
-        image = "assets/avatars/m/#{@count}.jpg"
+        image = Figaro.env.root_url + "assets/avatars/m/#{@count}.jpg"
         first_name = response['results'][0]['user']['name']['first']
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']
@@ -39,7 +39,7 @@ namespace :db do
 
       72.times do
         response = HTTParty.get("http://api.randomuser.me/?gender=female").parsed_response
-        image = "assets/avatars/f/#{@count}.jpg"
+        image = Figaro.env.root_url + "assets/avatars/f/#{@count}.jpg"
         first_name = response['results'][0]['user']['name']['first']
         last_name = response['results'][0]['user']['name']['last']
         email = response['results'][0]['user']['email']
