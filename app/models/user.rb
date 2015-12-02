@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
                     styles: { :medium => "200x200>", :thumb => "50x50>", :micro => "30x30>" }
   validates_attachment_content_type :avatar, :content_type => /^image\/(png|gif|jpeg|jpg)/
   before_create :build_default_profile
-  after_create :new_user_notification
 
 
     def self.from_omniauth(auth)
@@ -110,9 +109,6 @@ class User < ActiveRecord::Base
       true
     end
 
-    def new_user_notification
-      NotificationMailer.new_user_notification(self.id).deliver_now
-    end
 
 
 end

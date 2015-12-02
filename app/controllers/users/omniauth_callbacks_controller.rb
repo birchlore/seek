@@ -9,6 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       if @user.analytic.logins < 1
         finished(:user_signup)
+        NotificationMailer.new_user_notification(@user.id).deliver_now
       end
       @user.analytic.logins += 1
       @user.analytic.save
