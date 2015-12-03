@@ -18,7 +18,7 @@
  
           <div class="media-body">
             <h6 class="media-heading text-left"><b><%= message.sender.first_name %></b>
-              says at <%= message.created_at.strftime("%-d %B %Y, %H:%M") %></h6>
+              says at <%= time_ago_in_words(message.created_at) %></h6>
             <%= message.body %>
           </div>
         </div>

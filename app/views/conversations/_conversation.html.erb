@@ -11,7 +11,7 @@
         </div>
         <div class="col-sm-11 col-xs-10">
           Conversation with <%= participant_names(conversation) %>
-          <p style="color: #666;"><%= conversation.messages.last.sender.first_name %> said <span style="font-style:italic; font-weight: 100;"><%= conversation.messages.last.body.first(20) %></span> <%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
+          <p style="color: #666;"><%= conversation.messages.last.sender.first_name %> said <span style="font-style:italic; font-weight: 100;"><%= conversation.messages.last.body.first(100) %></span> <%= time_ago_in_words(conversation.messages.last.created_at) %> ago</p>
         </div>
         
       </div>
