@@ -29,7 +29,7 @@ function initializeMovies() {
     // get clicked on user data 
     var data = $(this).closest('.modal-link').find('.hidden-user-data');
     var image = data.find('.user-image').text();
-    var name = data.find('.user-name').text();
+    var name = data.find('.user-name').text().trim();
     var id = data.find('.user-id').text();
     var wants_to_see = data.find('.user-wants-to-see').text();
 

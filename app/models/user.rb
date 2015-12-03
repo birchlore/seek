@@ -92,15 +92,11 @@ class User < ActiveRecord::Base
 
     def city
       return unless self.location
-      self.location.split.first.gsub(',', '')
+      self.location.split(",").first
     end
 
     def matches_on_movie(movie)
-      if self.location
-        @users = movie.users_who_want_to_see.where(location: self.location).where.not(id: self.id)
-      else
-        @users = movie.users_who_want_to_see.where.not(id: self.id)
-      end
+      @users = movie.users_who_want_to_see.where.not(id: self.id)
     end
 
 

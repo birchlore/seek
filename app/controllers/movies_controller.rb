@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
   def show
     current_user.analytic.increase_movie_clicks_count
     @movie = Movie.find(params[:id])
-    @users = current_user.matches_on_movie(@movie)
+    @users = current_user.matches_on_movie(@movie).order("RANDOM()")
   end
 
   protected
