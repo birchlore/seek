@@ -11,10 +11,10 @@ class NotificationMailer < ApplicationMailer
     mail(to: @recipients, subject: "#{@user.first_name} has logged in")
   end
 
-  def message_sent(sender_id, receiver_id, message_id)
+  def message_sent(sender_id, receiver_id, message)
     @sender = User.find(sender_id)
     @receiver = User.find(receiver_id)
-    @body = Message.find(message_id).body
+    @body = message
     mail(to: @recipients, subject: "#{@sender.name} sent #{@receiver.name} a message!")
   end
 
