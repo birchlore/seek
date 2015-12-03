@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
     @sender = current_user
     @receiver = User.find(params[:receiver])
     @sender.send_message(@receiver,params[:message], params[:subject])
+    NotificationMailer.message_sent(@sender.id, @receiver.id, Message.last.id)
 
     respond_to do |format|
       format.json { head :ok }
