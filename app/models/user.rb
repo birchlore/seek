@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
       # find other users who rated 1 in those movies and get user_ids
       other_user_ids = MovieRating.where(wants_to_see: true, seen: false).where(movie_id: movie_ids).where.not(user_id: self.id).map(&:user_id).uniq
       # find those users with id 
-      other_users = User.where(id: other_user_ids)
+      other_users = User.where(id: other_user_ids).where(seed: true)
     end
 
     def name
