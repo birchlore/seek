@@ -30,6 +30,7 @@ function initializeMovies() {
     var data = $(this).closest('.modal-link').find('.hidden-user-data');
     var image = data.find('.user-image').text();
     var name = data.find('.user-name').text().trim();
+    var age = data.find('.user-age').text();
     var id = data.find('.user-id').text();
     var wants_to_see = data.find('.user-wants-to-see').text();
 
@@ -39,6 +40,7 @@ function initializeMovies() {
 
     modal.find('#modal-image').find('img').attr('src', image);
     modal.find('#modal-name').text(name);
+    modal.find('#modal-age').text(age);
     modal.find('#receiver').val(id.trim());
     modal.find('#modal-wants-to-see').text(wants_to_see); 
 
