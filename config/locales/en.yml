@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  mailboxer:
+    message_mailer:
+      subject_new: 'New message on Seek'
+      subject_reply: 'New message on Seek'

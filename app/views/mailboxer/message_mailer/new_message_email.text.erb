@@ -1,7 +1,5 @@
-You have a new message: <%= @subject %>
+New message on Seek!
 ===============================================
-
-You have received a new message:
 
 -----------------------------------------------
 <%= @message.body.html_safe? ? @message.body : strip_tags(@message.body) %>

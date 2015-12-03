@@ -14,7 +14,8 @@ class MessagesController < ApplicationController
     @sender = current_user
     @receiver = User.find(params[:receiver])
     @message = params[:message]
-    NotificationMailer.message_sent(@sender.id, @receiver.id)
+    binding.pry
+    NotificationMailer.message_sent(@sender.id, @receiver.id, @message)
     @sender.send_message(@receiver,@message, params[:subject])
 
     respond_to do |format|
