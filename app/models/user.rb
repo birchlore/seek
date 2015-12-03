@@ -65,16 +65,19 @@ class User < ActiveRecord::Base
     end
 
     def birth_year
+      return unless self.birthday
       self.birthday.scan(/\d{4}/).first.to_i
     end
 
     def birth_month
+      return unless self.birthday
       matches = self.birthday.scan(/\d{2}\//)
       return unless matches.count == 2
       matches.first.scan(/\d{2}/).first.to_i
     end
 
     def birth_day
+      return unless self.birthday
       matches = self.birthday.scan(/\d{2}\//)
       return unless matches.count == 2
       matches.last.scan(/\d{2}/).first.to_i
