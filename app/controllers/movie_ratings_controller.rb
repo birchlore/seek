@@ -4,6 +4,9 @@ class MovieRatingsController < ApplicationController
   respond_to :html, :json
 
   def new
+    if current_user.analytic.logins == 1
+      @new_signup = true
+    end
     unrated_movies = current_user.current_unrated_movies
     redirect_to dashboard_path if unrated_movies.count < 1
     @unrated_movie = unrated_movies.first
