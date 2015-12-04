@@ -5,8 +5,10 @@
             <p style="font-size:14px">
                <% if @potential_matches < 1 %>
                   <i class="glyphicon glyphicon-user"></i> Like movies to connect with other people.
-              <% else %>
+              <% elsif current_user.gender == "male" %>
                   <i class="glyphicon glyphicon-user"></i> <%= @potential_matches %> people want to see one of the same movies as you. Message them to go see something.
+              <% elsif current_user.gender == "female" %>
+                 Get a <b>free</b> movie ticket when you initiate a date. Send someone a message!
               <% end %>
           </p>
         </div>
